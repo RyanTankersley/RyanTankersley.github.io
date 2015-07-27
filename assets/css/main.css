@@ -2809,6 +2809,9 @@
 
 	}
 
+.hideOnSmall {
+	display: none;!
+}
 /* Medium */
 
 
