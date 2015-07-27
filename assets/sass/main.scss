@@ -42,6 +42,10 @@
 		)
 	));
 
+.hideOnSmall {
+	display: none;
+}
+
 	@mixin minHeight($tb, $pad) {
 		min-height: calc( 100vh - #{ $tb + (($tb - _size(element-margin)) + $pad) } );
 	}
