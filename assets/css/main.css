@@ -2809,9 +2809,6 @@
 
 	}
 
-.hideOnSmall {
-	display: none;!
-}
 /* Medium */
 
 
@@ -2867,6 +2864,9 @@
 					position: relative;
 				}
 
+.hideOnSmall {
+	display: none;!
+}
 	}
 
 /* Small */
@@ -2925,6 +2925,9 @@
 				padding: 3em 1.5em 1em 1.5em ;
 			}
 
+.hideOnSmall {
+	display: none;!
+}
 	}
 
 /* XSmall */
@@ -3034,4 +3037,7 @@
 					padding: 0;
 				}
 
+.hideOnSmall {
+	display: none;!
+}
 	}
