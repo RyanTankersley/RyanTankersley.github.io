@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tank Studios | Contact</title>
+		<meta name="description" content='Get in contact with the creator of Tank Studios'>
+		
+		<link rel="stylesheet" href="dist/app.css" />
+		<link rel="stylesheet" href="dist/site.css" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div id="navbar"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-offset-2 col-md-8">
+					<div class="card header-card">
+						<img id="small-logo" src="content/img/ts-logo.png" alt="logo" class="img" />
+						<div id="contact-card">
+							<h1 style="margin-bottom: 5px;">Contact Me</h1>
+							<form style="margin-bottom: 15px;" method="post" action="//formspree.io/ry.tankersley@gmail.com">
+								<div class="form-group">
+									<input type="text" class="form-control" name="Name" id="contact-name" placeholder="Name" >
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" name="Email" id="contact-email" placeholder="Email" >
+								</div>
+								<div class="form-group">
+									<textarea type="text" class="form-control" name="Message" id="contact-message" placeholder="Message" ></textarea>
+								</div>
+								<input type="hidden" name="_next" value="//www.tankstudios.net" />
+								<input type="hidden" name="_subject" value="Tank Studios Main Contact" />
+								<input type="text" name="_gotcha" style="display:none" />
+								<button type="submit" value="Send Message" class="btn btn-primary">Send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="dist/app.js" ></script>
+		<script type="text/javascript" src="dist/navbar.js" ></script>
+		<script type="text/javascript" src="dist/site.js" ></script>
+	</body>
+</html>
