@@ -14,8 +14,8 @@ function PortfolioItem(title, description, imageName, url, codeUrl) {
 var portfolioItems = [
 	new PortfolioItem("Tank Studios", 
 	"This is the home base for all Tank Studios content. The site is built as static HTML5 pages, and it relies on ReactJS to help with the repetitive parts.",
-	"tsHome.png", "http://www.tankstudios.net", "#"),
+	"tshome.png", "http://www.tankstudios.net", "#"),
 	new PortfolioItem("Tech Reformation Slack", 
 	"The Tech Reformation podcast created a Slack team for its community.  This page allows people to easily invite themself to join the team. It relies on a NodeJS backend to call the Slack API.",
-	"trSlack.png", "http://slack.techreformation.com/", "#")
+	"trslack.png", "http://slack.techreformation.com/", "#")
 ];
