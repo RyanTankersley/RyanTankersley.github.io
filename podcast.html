@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tank Studios | Tech Reformation Podcast</title>
+		<meta name="description" content="Tech Reformation: a podcast where the world of technology meets the worldview of Christianity">
+		
+		<link rel="stylesheet" href="dist/app.css" />
+		<link rel="stylesheet" href="dist/site.css" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div id="navbar"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-offset-2 col-md-8">
+					<div id="podcast-header-card" class="card header-card">
+						<img id="techreflogo" src="content/img/tr-logo.png" alt="Tech Reformation" class="img img-circle" />
+						<h3 class="tagline">Where the world of technology meets the worldview of Christianity</h3>
+						<p class="tagline">Created in collaboration with Craig Ellis, Derek Mast, and Ben Robin</p>
+						<a href="http://www.techreformation.com"><button type="button" class="btn btn-primary" style="margin-bottom: 8px;">View Official Site</button></a> 
+					</div>
+				</div>
+			</div>
+			<div id="podcast-list"></div>
+		</div>
+		<script type="text/javascript" src="dist/app.js" ></script>
+		<script type="text/javascript" src="dist/navbar.js" ></script>
+		<script type="text/javascript" src="dist/podcast-array.js" ></script>
+		<script type="text/javascript" src="dist/podcast-list.js" ></script>
+		<script type="text/javascript" src="dist/site.js" ></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				for(var i = 0; i < podcasts.length; i++) {
+					var pc = podcasts[i];
+					$("#" + pc.index).jPlayer({
+						ready: function () {
+							$(this).jPlayer("setMedia", {
+								title: pc.title,
+								mp3: this.dataset.url
+							});
+						},
+						swfPath: "../../dist/jplayer",
+						supplied: "mp3",
+						wmode: "window",
+						useStateClassSkin: true,
+						autoBlur: false,
+						smoothPlayBar: true,
+						keyEnabled: true,
+						remainingDuration: true,
+						toggleDuration: true,
+						cssSelectorAncestor: "#container" + pc.index.toString()
+					});
+				}	
+			});
+		</script>
+	</body>
+</html>
