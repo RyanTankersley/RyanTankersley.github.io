@@ -32,7 +32,7 @@ var PortfolioCard = React.createClass({
 							React.createElement(
 								"button",
 								{ className: "btn btn-primary btn-portfolio" },
-								"Visit Site"
+								"Site"
 							)
 						)
 					),
@@ -45,7 +45,7 @@ var PortfolioCard = React.createClass({
 							React.createElement(
 								"button",
 								{ className: "btn btn-primary btn-portfolio" },
-								"View Source"
+								"Source"
 							)
 						)
 					)

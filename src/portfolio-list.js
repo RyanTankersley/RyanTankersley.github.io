@@ -9,10 +9,10 @@ var PortfolioCard = React.createClass({
 					</div>
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-4">
-							<a href={this.props.portfolio.url}><button className="btn btn-primary btn-portfolio">Visit Site</button></a>
+							<a href={this.props.portfolio.url}><button className="btn btn-primary btn-portfolio">Site</button></a>
 						</div>
 						<div className="col-xs-4">
-							<a href={this.props.portfolio.codeUrl}><button className="btn btn-primary btn-portfolio">View Source</button></a>
+							<a href={this.props.portfolio.codeUrl}><button className="btn btn-primary btn-portfolio">Source</button></a>
 						</div>
 					</div>
 					<p>{this.props.portfolio.description}</p>

@@ -76,7 +76,7 @@ p {
 
 .portfolio-card {
 	text-align: center;
-	height: 41em;
+	height: 47em;
 }
 
 .portfolio-image-container {
@@ -124,7 +124,7 @@ p {
 .btn-portfolio {
 	margin-top: .6em; 
 	margin-bottom: .8em;
-	width: 7.5em;
+	width: 6em;
 }
 
 .btn:focus,
