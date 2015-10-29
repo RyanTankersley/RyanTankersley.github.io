@@ -55,6 +55,11 @@ function Podcast(title, date, description, index) {
 
 var podcasts = [
 		new Podcast(
+			"It's GIF Not JIF", 
+			"October 25, 2015", 
+			"News, more ways to save money, and a discussion on happiness, joy, tech and theology.",
+			11),
+		new Podcast(
 			"Rest Azured", 
 			"October 18, 2015", 
 			"News, how to stay in touch with the latest content via Feed Readers and we chat about" + 
