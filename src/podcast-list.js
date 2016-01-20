@@ -5,7 +5,7 @@ var PodcastCard = React.createClass({
 				<div className="card sub-card podcast-card">
 					<h1>{this.props.podcast.title}</h1>
 					<p className="podcast-date">{this.props.podcast.date}</p>
-					<div id={this.props.podcast.index} className="jp-jplayer" data-url={this.props.podcast.getFileUrl()}></div>
+					<div id={this.props.podcast.index} className="jp-jplayer" data-url={this.props.podcast.url}></div>
 					<div id={"container" + this.props.podcast.index} className="jp-audio" role="application" aria-label="media player">
 						<div className="jp-type-single">
 							<div className="jp-gui jp-interface">
@@ -30,7 +30,7 @@ var PodcastCard = React.createClass({
 						</div>
 					</div>
 					<div className="podcast-card-desc-container">
-						<p>{this.props.podcast.getDesc()}</p>
+						<p id={"desc" + this.props.podcast.index}></p>
 					</div>
 				</div>
 			</div>

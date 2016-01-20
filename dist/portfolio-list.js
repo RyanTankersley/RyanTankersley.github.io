@@ -73,5 +73,3 @@ var PortfolioList = React.createClass({
 		);
 	}
 });
-
-ReactDOM.render(React.createElement(PortfolioList, { portfolioItems: portfolioItems }), document.getElementById('portfolio-list'));

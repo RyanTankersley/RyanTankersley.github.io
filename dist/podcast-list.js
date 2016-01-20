@@ -20,7 +20,7 @@ var PodcastCard = React.createClass({
 					{ className: "podcast-date" },
 					this.props.podcast.date
 				),
-				React.createElement("div", { id: this.props.podcast.index, className: "jp-jplayer", "data-url": this.props.podcast.getFileUrl() }),
+				React.createElement("div", { id: this.props.podcast.index, className: "jp-jplayer", "data-url": this.props.podcast.url }),
 				React.createElement(
 					"div",
 					{ id: "container" + this.props.podcast.index, className: "jp-audio", role: "application", "aria-label": "media player" },
@@ -89,11 +89,7 @@ var PodcastCard = React.createClass({
 				React.createElement(
 					"div",
 					{ className: "podcast-card-desc-container" },
-					React.createElement(
-						"p",
-						null,
-						this.props.podcast.getDesc()
-					)
+					React.createElement("p", { id: "desc" + this.props.podcast.index })
 				)
 			)
 		);

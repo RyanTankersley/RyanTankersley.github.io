@@ -1,47 +1,10 @@
-function Podcast(title, date, description, index) {
+function Podcast(title, date, description, url, index) {
 	this.title = title;
 	this.date = date;
-	this.description = description;
+	this.description = decodeURIComponent(encodeURIComponent(description));
+	this.url = url;
 	this.index = index;
-	
-	var baseUrl = "http://www.techreformation.com/";
-	var podcastFileUrlAddition = "wp-content/uploads/";
-	
-	this.getPaddedIndex = function(index) {
-		var length = index.length;
-		while(length < 3)
-		{
-			length++;
-			index = "0" + index;
-		}
-		
-		return index;
-	}
-	
-	this.getUrl = function() {
-		var urlIndex = this.getPaddedIndex(index.toString());
-		
-		var mainUrl = urlIndex + " " + title;
-		
-		while(mainUrl.search(" ") >= 0)
-			mainUrl = mainUrl.replace(" ", "-")
-		
-		return baseUrl + mainUrl;
-	}
-	
-	this.getFileUrl = function() {
-		var urlIndex = index.toString();
-		var length = urlIndex.length;
-		while(length < 3)
-		{
-			length++;
-			urlIndex = "0" + urlIndex;
-		}
-		
-		var url =  baseUrl + podcastFileUrlAddition + urlIndex + ".mp3";
-		return url;
-	}
-	
+    
 	this.getDesc = function(maxCharacters) {
 		if(isNaN(maxCharacters))
 			maxCharacters = 200;

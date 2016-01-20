@@ -32,7 +32,33 @@
 		<script type="text/javascript" src="dist/site.js" ></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				for(var i = 0; i < podcasts.length; i++) {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://lutherbot.herokuapp.com/techrefepisodes',
+                    dataType: "json",
+                    success: parseEpisodes
+                });
+					
+			});
+            
+            var parseEpisodes = function(data) {
+                var episodes = JSON.parse(JSON.stringify(data));
+                var podcasts = episodes.map(function(episode) {
+                    return new Podcast(episode.title, episode.data, episode.description, episode.url);
+                });
+                for(var i in podcasts) {
+                    podcasts[i].index = i;
+                }
+                
+                ReactDOM.render(React.createElement(PodcastList, { podcasts: podcasts }), document.getElementById('podcast-list'));
+                
+                for(var i in podcasts) {
+                    var item = $('#desc' + podcasts[i].index);
+                    console.log(item); 
+                    item.html(podcasts[i].getDesc());
+                }
+                
+                for(var i = 0; i < podcasts.length; i++) {
 					var pc = podcasts[i];
 					$("#" + pc.index).jPlayer({
 						ready: function () {
@@ -52,8 +78,9 @@
 						toggleDuration: true,
 						cssSelectorAncestor: "#container" + pc.index.toString()
 					});
-				}	
-			});
+				}
+            };
+            
 		</script>
 	</body>
 </html>

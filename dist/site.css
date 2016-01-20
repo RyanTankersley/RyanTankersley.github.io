@@ -60,7 +60,7 @@ p {
 }
 
 .podcast-card {
-	height: 30em;
+	height: 32em;
 }
 
 .podcast-card-desc-container {
@@ -87,6 +87,11 @@ p {
 	height: 20em; 
 	max-width: 100%;
 	border: solid 1px black;
+}
+
+.img-author {
+	height: 80px;
+	width: 80px;
 }
 
 #contact-card {
