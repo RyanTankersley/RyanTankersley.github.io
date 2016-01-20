@@ -96,6 +96,22 @@ var PodcastCard = React.createClass({
 	}
 });
 
+function Podcast(title, date, description, url, index) {
+	this.title = title;
+	this.date = date;
+	this.description = decodeURIComponent(encodeURIComponent(description));
+	this.url = url;
+	this.index = index;
+
+	this.getDesc = function (maxCharacters) {
+		if (isNaN(maxCharacters)) maxCharacters = 200;
+
+		if (this.description.length <= maxCharacters) return this.description;
+
+		return this.description.substring(0, maxCharacters) + "...";
+	};
+};
+
 var PodcastList = React.createClass({
 	displayName: "PodcastList",
 
@@ -110,5 +126,3 @@ var PodcastList = React.createClass({
 		);
 	}
 });
-
-ReactDOM.render(React.createElement(PodcastList, { podcasts: podcasts }), document.getElementById('podcast-list'));
