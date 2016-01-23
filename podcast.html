@@ -45,10 +45,18 @@
                 var podcasts = episodes.map(function(episode) {
                     return new Podcast(episode.title, episode.data, episode.description, episode.url);
                 });
+                
                 for(var i in podcasts) {
                     podcasts[i].index = i;
                 }
+                
                 ReactDOM.render(React.createElement(PodcastList, { podcasts: podcasts }), document.getElementById('podcast-list'));
+                
+                //This reloads the html to decode the html encoded strings
+                for(var i in podcasts) {
+                    var item = $('#desc' + podcasts[i].index);
+                    item.html(podcasts[i].getDesc());
+                };
             };
             
 		</script>

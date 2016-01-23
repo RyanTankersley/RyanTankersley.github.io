@@ -57,7 +57,7 @@ var JPlayer = React.createClass({
 				    </div>
 			    </div>
 			    <div className="podcast-card-desc-container">
-			        <p>{this.props.podcast.getDesc()}</p>
+			        <p id={"desc" + this.props.podcast.index}>{this.props.podcast.getDesc()}</p>
 			    </div>
             </div>
         );
