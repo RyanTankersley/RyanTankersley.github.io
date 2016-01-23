@@ -27,7 +27,6 @@
 		</div>
 		<script type="text/javascript" src="dist/app.js" ></script>
 		<script type="text/javascript" src="dist/navbar.js" ></script>
-		<script type="text/javascript" src="dist/podcast-array.js" ></script>
 		<script type="text/javascript" src="dist/podcast-list.js" ></script>
 		<script type="text/javascript" src="dist/site.js" ></script>
 		<script type="text/javascript">
@@ -49,36 +48,7 @@
                 for(var i in podcasts) {
                     podcasts[i].index = i;
                 }
-                
                 ReactDOM.render(React.createElement(PodcastList, { podcasts: podcasts }), document.getElementById('podcast-list'));
-                
-                for(var i in podcasts) {
-                    var item = $('#desc' + podcasts[i].index);
-                    console.log(item); 
-                    item.html(podcasts[i].getDesc());
-                }
-                
-                for(var i = 0; i < podcasts.length; i++) {
-					var pc = podcasts[i];
-					$("#" + pc.index).jPlayer({
-						ready: function () {
-							$(this).jPlayer("setMedia", {
-								title: pc.title,
-								mp3: this.dataset.url
-							});
-						},
-						swfPath: "../../dist/jplayer",
-						supplied: "mp3",
-						wmode: "window",
-						useStateClassSkin: true,
-						autoBlur: false,
-						smoothPlayBar: true,
-						keyEnabled: true,
-						remainingDuration: true,
-						toggleDuration: true,
-						cssSelectorAncestor: "#container" + pc.index.toString()
-					});
-				}
             };
             
 		</script>
