@@ -10,12 +10,13 @@ var JPlayer = React.createClass({
 		var title = this.props.podcast.title;
 		var url = this.props.podcast.url;
 		var index = this.props.podcast.index;
-		$("#" + index).jPlayer({
+		var item = $("#" + index);
+		item.jPlayer({
 			ready: function ready() {
 				$(this).jPlayer("setMedia", {
 					title: title,
 					mp3: url
-				});
+				}).jPlayer("play");
 			},
 			swfPath: "../../dist/jplayer",
 			supplied: "mp3",
@@ -40,7 +41,7 @@ var JPlayer = React.createClass({
 			React.createElement(
 				"button",
 				{ className: "btn btn-primary btn-lg", style: { display: this.state.readyToPlay ? 'none' : 'block' }, onClick: this.showPlayerClick },
-				"Stream"
+				"Play Episode"
 			),
 			React.createElement(
 				"div",

@@ -6,12 +6,13 @@ var JPlayer = React.createClass({
         var title = this.props.podcast.title;
         var url = this.props.podcast.url;
         var index = this.props.podcast.index;
-        $("#" + index).jPlayer({
+        var item = $("#" + index);
+        item.jPlayer({
 			ready: function () {
 				$(this).jPlayer("setMedia", {
 					title: title,
 					mp3: url
-				});
+				}).jPlayer("play");
 			},
 			swfPath: "../../dist/jplayer",
 			supplied: "mp3",
@@ -32,7 +33,7 @@ var JPlayer = React.createClass({
         return (
             <div>
                 <div style={{display: this.state.readyToPlay ? 'block' : 'none'}} id={this.props.podcast.index} className="jp-jplayer" data-url={this.props.podcast.url}></div>
-                <button className="btn btn-primary btn-lg" style={{display: this.state.readyToPlay ? 'none' : 'block'}} onClick={this.showPlayerClick}>Stream</button>
+                <button className="btn btn-primary btn-lg" style={{display: this.state.readyToPlay ? 'none' : 'block'}} onClick={this.showPlayerClick}>Play Episode</button>
 			    <div style={{display: this.state.readyToPlay ? 'block' : 'none'}} id={"container" + this.props.podcast.index} className="jp-audio" role="application" aria-label="media player">
 				    <div className="jp-type-single">
 					    <div className="jp-gui jp-interface">
