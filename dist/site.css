@@ -271,6 +271,11 @@ ul.icons li a:hover {
 
 @media (max-width: 767px) {
 	
+    body {
+		background-color: #447DBD;
+        background-image: none;
+    }
+    
 	ul.icons li a:before {
 		font-size: 1.5rem;
 	}
