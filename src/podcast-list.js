@@ -1,3 +1,70 @@
+var JPlayer = React.createClass({
+    getInitialState: function() {
+        return {readyToPlay: false};
+    },
+    showPlayerClick: function() {
+        var title = this.props.podcast.title;
+        var url = this.props.podcast.url;
+        var index = this.props.podcast.index;
+        var item = $("#" + index);
+        item.jPlayer({
+			ready: function () {
+				$(this).jPlayer("setMedia", {
+					title: title,
+					mp3: url
+				}).jPlayer("play");
+			},
+			swfPath: "../../dist/jplayer",
+			supplied: "mp3",
+			wmode: "window",
+			useStateClassSkin: true,
+			autoBlur: false,
+			smoothPlayBar: true,
+			keyEnabled: true,
+			remainingDuration: true,
+			toggleDuration: true,
+			cssSelectorAncestor: "#container" + index.toString()
+		});
+        this.setState({
+            readyToPlay: true
+        });
+    },
+    render: function() {
+        return (
+            <div>
+                <div style={{display: this.state.readyToPlay ? 'block' : 'none'}} id={this.props.podcast.index} className="jp-jplayer" data-url={this.props.podcast.url}></div>
+                <button className="btn btn-primary btn-lg" style={{display: this.state.readyToPlay ? 'none' : 'block'}} onClick={this.showPlayerClick}>Play Episode</button>
+			    <div style={{display: this.state.readyToPlay ? 'block' : 'none'}} id={"container" + this.props.podcast.index} className="jp-audio" role="application" aria-label="media player">
+				    <div className="jp-type-single">
+					    <div className="jp-gui jp-interface">
+						    <div className="jp-controls">
+							    <button className="jp-play" role="button" tabindex="0">play</button>
+							    <button className="jp-stop" role="button" tabindex="0">stop</button>
+						    </div>
+						    <div className="jp-progress">
+						    	<div className="jp-seek-bar">
+						    		<div className="jp-play-bar"></div>
+						    	</div>
+						    </div>
+						    <div className="jp-time-holder">
+						    	<div className="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+						    	<div className="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+						    </div>
+					   </div>
+					    <div className="jp-no-solution">
+						    <span>Update Required</span>
+						    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+					    </div>
+				    </div>
+			    </div>
+			    <div className="podcast-card-desc-container">
+			        <p id={"desc" + this.props.podcast.index}>{this.props.podcast.getDesc()}</p>
+			    </div>
+            </div>
+        );
+    }    
+});
+
 var PodcastCard = React.createClass({
 	render: function() {
 		return (
@@ -5,33 +72,7 @@ var PodcastCard = React.createClass({
 				<div className="card sub-card podcast-card">
 					<h1>{this.props.podcast.title}</h1>
 					<p className="podcast-date">{this.props.podcast.date}</p>
-					<div id={this.props.podcast.index} className="jp-jplayer" data-url={this.props.podcast.url}></div>
-					<div id={"container" + this.props.podcast.index} className="jp-audio" role="application" aria-label="media player">
-						<div className="jp-type-single">
-							<div className="jp-gui jp-interface">
-								<div className="jp-controls">
-									<button className="jp-play" role="button" tabindex="0">play</button>
-									<button className="jp-stop" role="button" tabindex="0">stop</button>
-								</div>
-								<div className="jp-progress">
-									<div className="jp-seek-bar">
-										<div className="jp-play-bar"></div>
-									</div>
-								</div>
-								<div className="jp-time-holder">
-									<div className="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-									<div className="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-								</div>
-							</div>
-							<div className="jp-no-solution">
-								<span>Update Required</span>
-								To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-							</div>
-						</div>
-					</div>
-					<div className="podcast-card-desc-container">
-						<p id={"desc" + this.props.podcast.index}></p>
-					</div>
+					<JPlayer podcast={this.props.podcast} />
 				</div>
 			</div>
 		);
@@ -44,8 +85,10 @@ function Podcast(title, date, description, url, index) {
 	this.description = decodeURIComponent(encodeURIComponent(description));
 	this.url = url;
 	this.index = index;
+    this.play = false;
     
 	this.getDesc = function(maxCharacters) {
+        console.lo
 		if(isNaN(maxCharacters))
 			maxCharacters = 200;
 		
